@@ -7,3 +7,4 @@ dist/
 *.egg-info/
 .agent-workflow/
 *.awf-index.json.gz
+.idea/

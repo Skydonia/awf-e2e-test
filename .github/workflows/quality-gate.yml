@@ -1,0 +1,27 @@
+name: Repository quality gate
+on:
+  pull_request:
+    branches: [develop]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: bash .agent/setup-awf.sh
+      - run: python -m pytest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: bash .agent/setup-awf.sh
+      - run: python -m build
+  quality-gate:
+    if: always()
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    steps:
+      - run: test '${{ contains(needs.*.result, 'failure') }}' = 'false' && test '${{ contains(needs.*.result, 'cancelled') }}' = 'false'

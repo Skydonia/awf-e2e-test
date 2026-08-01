@@ -1,0 +1,11 @@
+{
+  "awf_version": "0.1.3",
+  "managed_files": {
+    ".agent/setup-awf.sh": "sha256:6d321a225131ee8666ce5ae404ef04240d2c45545c28ab489a8d5533d5dfe095",
+    ".agents/skills/adaptive-software-change/SKILL.md": "sha256:6168eded55b9e511a71112a692e747451f9f0cbdc97a177c8527278dcf832240",
+    ".agents/skills/repository-context/SKILL.md": "sha256:5ecbcf7dfe1145c73be779a01e9f73f7b230ff78d4f45f2116e0aabb94f46bc6",
+    ".github/workflows/quality-gate.yml": "sha256:ee4f0a3bf471e41a8decf9d90fb8cf9f4de69f9bdd4eca41692152e24f041846",
+    "AGENTS.md": "sha256:0ddd108f32d34b88facc5f023ce1d89efa9698da352d62fa9489c226d6047fac"
+  },
+  "schema_version": 1
+}

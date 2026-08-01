@@ -1,0 +1,8 @@
+{
+  "auto_merge": false,
+  "base_branch": "develop",
+  "brain_policy": "external",
+  "context_max_files": 12,
+  "context_max_tokens": 4000,
+  "metrics_enabled": true
+}
