@@ -2,5 +2,6 @@
 
 from .calculator import add, divide
 from .statistics import mean
+from .summary import StatisticsSummary, describe
 
-__all__ = ["add", "divide", "mean"]
+__all__ = ["StatisticsSummary", "add", "describe", "divide", "mean"]
