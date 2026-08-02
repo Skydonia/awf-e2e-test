@@ -1,10 +1,26 @@
 import pytest
 
-from awf_e2e_test.calculator import add, divide
+from awf_e2e_test.calculator import add, divide, subtract
 
 
 def test_add() -> None:
     assert add(2, 3) == 5
+
+
+def test_subtract_positive_integers() -> None:
+    assert subtract(7, 3) == 4
+
+
+def test_subtract_negative_result() -> None:
+    assert subtract(3, 7) == -4
+
+
+def test_subtract_decimal_values() -> None:
+    assert subtract(4.5, 1.25) == pytest.approx(3.25)
+
+
+def test_subtract_zero() -> None:
+    assert subtract(6, 0) == 6
 
 
 def test_divide() -> None:
