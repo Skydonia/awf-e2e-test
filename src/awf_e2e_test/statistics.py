@@ -21,11 +21,15 @@ def median(values: Sequence[float]) -> float:
     return (ordered[middle - 1] + ordered[middle]) / 2
 
 
-def standard_deviation(values: Sequence[float]) -> float:
-    """Return the population standard deviation of a non-empty sequence."""
+def variance(values: Sequence[float]) -> float:
+    """Return the population variance of a non-empty sequence."""
     if not values:
-        raise ValueError("standard_deviation requires at least one value")
+        raise ValueError("variance requires at least one value")
 
     average = mean(values)
-    variance = sum((value - average) ** 2 for value in values) / len(values)
-    return variance**0.5
+    return sum((value - average) ** 2 for value in values) / len(values)
+
+
+def standard_deviation(values: Sequence[float]) -> float:
+    """Return the population standard deviation of a non-empty sequence."""
+    return variance(values) ** 0.5
