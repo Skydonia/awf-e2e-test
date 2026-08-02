@@ -22,6 +22,11 @@ jobs:
     name: AWF telemetry (non-blocking)
     needs: [quality-gate]
     if: ${{ always() }}
+    permissions:
+      actions: read
+      contents: read
+      issues: read
+      pull-requests: read
     uses: ./.github/workflows/awf-episode-completed.yml
     with:
       telemetry_enabled: ${{ vars.AWF_TELEMETRY_ENABLED }}
