@@ -5,10 +5,10 @@
     ".agent/setup-project.sh": "sha256:abcab1ec84e932e101fb7d54f9629dca17bc50fd897719ecdfc60be635004fb3",
     ".agents/skills/adaptive-software-change/SKILL.md": "sha256:ad18e4ad549df50f3f443cec76849f9e29fd1a4da68eeb8bdbf4d17e30d3fc4e",
     ".agents/skills/repository-context/SKILL.md": "sha256:5ecbcf7dfe1145c73be779a01e9f73f7b230ff78d4f45f2116e0aabb94f46bc6",
-    ".github/workflows/awf-dashboard-pages.yml": "sha256:9b781df8d21385531a63970ddc37a77e96489975ae02cca26481a4993aa80463",
-    ".github/workflows/awf-episode-completed.yml": "sha256:15e97efba01e29eb113656d758e10aad3ccf45e9715526439fd73eb6f234f591",
+    ".github/workflows/awf-dashboard-pages.yml": "sha256:a7bc7c09968c2a4e6e67a826b32ce976c91ccd9ddf4f9b70bbc178f94da58dc4",
+    ".github/workflows/awf-episode-completed.yml": "sha256:953f8a1455111a1d64e06a2c42f2fc5889aff24e3470b8acab6857e37a557b09",
     ".github/workflows/awf-pr-lifecycle.yml": "sha256:3f0bf1bb4ff743cee015582a8166f1ad2d95ece8c170cca872e71ed41a3e3d99",
-    ".github/workflows/quality-gate.yml": "sha256:399f93df490d75a56886d93788ec15b636fec96d0a8bb46b0c9304d6c3fe72d8",
+    ".github/workflows/quality-gate.yml": "sha256:94989c110b0852af89c439c02092fe86debe3da63f1feaae4b698fd1da60e3bf",
     "AGENTS.md": "sha256:d31e82f74a31ad302c33c0ad34f171d968e01fb14e3800a1c2d25dce10be805c",
     "scripts/send_pr_lifecycle.py": "sha256:da84773a8ca8b2d9e22ce834eb837b87eb13f33e1914395c20b8dcdee30b217a"
   },
