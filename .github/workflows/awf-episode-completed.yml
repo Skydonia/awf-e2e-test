@@ -25,6 +25,9 @@ on:
       telemetry_status:
         description: dispatched, disabled, or warning
         value: ${{ jobs.telemetry-dispatch.outputs.status }}
+      telemetry_comment_attempts:
+        description: Number of reserved-comment lookup attempts
+        value: ${{ jobs.telemetry-dispatch.outputs.comment_attempts }}
 
 permissions:
   actions: read
@@ -38,6 +41,7 @@ jobs:
     continue-on-error: true
     outputs:
       status: ${{ steps.send.outputs.status }}
+      comment_attempts: ${{ steps.send.outputs.comment_attempts }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -66,6 +70,7 @@ jobs:
           SEND_OUTCOME: ${{ steps.send.outcome }}
           TELEMETRY_STATUS: ${{ steps.send.outputs.status }}
           TELEMETRY_MESSAGE: ${{ steps.send.outputs.message }}
+          COMMENT_ATTEMPTS: ${{ steps.send.outputs.comment_attempts }}
         run: |
           status="${TELEMETRY_STATUS:-warning}"
           message="${TELEMETRY_MESSAGE:-AWF telemetry helper did not report a status}"
@@ -76,6 +81,7 @@ jobs:
             echo "### AWF telemetry"
             echo ""
             echo "- status: $status"
+            echo "- comment lookup attempts: ${COMMENT_ATTEMPTS:-0}"
             echo "- setup outcome: $SETUP_OUTCOME"
             echo "- send outcome: $SEND_OUTCOME"
           } >> "$GITHUB_STEP_SUMMARY"
