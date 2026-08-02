@@ -1,6 +1,6 @@
 import pytest
 
-from awf_e2e_test.statistics import mean, median, standard_deviation
+from awf_e2e_test.statistics import mean, median, standard_deviation, variance
 
 
 def test_mean() -> None:
@@ -25,6 +25,26 @@ def test_median_empty() -> None:
         median([])
 
 
+def test_variance_distinct_values() -> None:
+    assert variance([1, 2, 3]) == pytest.approx(2 / 3)
+    assert variance([1, 2, 3, 4]) == pytest.approx(1.25)
+
+
+def test_variance_decimal_values() -> None:
+    assert variance([1.5, 2.5, 4.0]) == pytest.approx(1.0555555555555556)
+
+
+def test_variance_empty() -> None:
+    with pytest.raises(ValueError, match="variance requires at least one value"):
+        variance([])
+
+
+def test_variance_does_not_mutate_input() -> None:
+    values = [3, 1, 2]
+    variance(values)
+    assert values == [3, 1, 2]
+
+
 def test_standard_deviation_distinct_values() -> None:
     assert standard_deviation([1, 2, 3]) == pytest.approx((2 / 3) ** 0.5)
     assert standard_deviation([1, 2, 3, 4]) == 1.118033988749895
@@ -43,3 +63,8 @@ def test_standard_deviation_does_not_mutate_input() -> None:
     values = [3, 1, 2]
     standard_deviation(values)
     assert values == [3, 1, 2]
+
+
+def test_standard_deviation_is_square_root_of_variance() -> None:
+    values = [1.5, 2.5, 4.0]
+    assert standard_deviation(values) == pytest.approx(variance(values) ** 0.5)
