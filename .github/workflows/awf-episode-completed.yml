@@ -17,7 +17,7 @@ on:
         type: number
       source_run_id:
         required: true
-        type: number
+        type: string
     secrets:
       control_tower_token:
         required: false
