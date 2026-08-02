@@ -1,11 +1,11 @@
 {
-  "awf_version": "0.1.11",
+  "awf_version": "0.1.12",
   "managed_files": {
-    ".agent/setup-awf.sh": "sha256:fb677f4b1d10a09e6c5cf1b748af217fbce2a768aca0aba00415cd23a2ecce5b",
+    ".agent/setup-awf.sh": "sha256:a5044a285f2473cae6e206edfdf50d500dabf4e1cbd9216f66ee7c380e2fd51d",
     ".agent/setup-project.sh": "sha256:abcab1ec84e932e101fb7d54f9629dca17bc50fd897719ecdfc60be635004fb3",
     ".agents/skills/adaptive-software-change/SKILL.md": "sha256:ad18e4ad549df50f3f443cec76849f9e29fd1a4da68eeb8bdbf4d17e30d3fc4e",
     ".agents/skills/repository-context/SKILL.md": "sha256:5ecbcf7dfe1145c73be779a01e9f73f7b230ff78d4f45f2116e0aabb94f46bc6",
-    ".github/workflows/awf-dashboard-pages.yml": "sha256:a7bc7c09968c2a4e6e67a826b32ce976c91ccd9ddf4f9b70bbc178f94da58dc4",
+    ".github/workflows/awf-dashboard-pages.yml": "sha256:1a275eb9328cbc6e93cd206a4d260fef62c32361292003be02239dff51de3cf8",
     ".github/workflows/awf-episode-completed.yml": "sha256:14c67e35217a27229cebb1413a073f3100c39432179118193fbf077986d88ab8",
     ".github/workflows/awf-pr-lifecycle.yml": "sha256:3f0bf1bb4ff743cee015582a8166f1ad2d95ece8c170cca872e71ed41a3e3d99",
     ".github/workflows/quality-gate.yml": "sha256:94989c110b0852af89c439c02092fe86debe3da63f1feaae4b698fd1da60e3bf",
