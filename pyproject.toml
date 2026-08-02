@@ -9,7 +9,10 @@ description = "Small project used to exercise Adaptive Agent Workflow end to end
 requires-python = ">=3.11"
 
 [project.optional-dependencies]
-dev = ["pytest>=8"]
+dev = [
+    "adaptive-agent-workflow==0.1.13",
+    "pytest>=8",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
