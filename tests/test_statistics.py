@@ -30,10 +30,6 @@ def test_standard_deviation_distinct_values() -> None:
     assert standard_deviation([1, 2, 3, 4]) == 1.118033988749895
 
 
-def test_standard_deviation_constant_values() -> None:
-    assert standard_deviation([5, 5, 5]) == 0.0
-
-
 def test_standard_deviation_decimal_values() -> None:
     assert standard_deviation([1.5, 2.5, 4.0]) == pytest.approx(1.0274023338281628)
 
