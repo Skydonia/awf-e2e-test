@@ -22,7 +22,7 @@ jobs:
       pages: write
       id-token: write
     env:
-      CONTROL_TOWER_REPOSITORY: ${{ vars.AWF_CONTROL_TOWER_REPOSITORY || "Skydonia/control_tower" }}
+      CONTROL_TOWER_REPOSITORY: ${{ vars.AWF_CONTROL_TOWER_REPOSITORY || fromJSON('"Skydonia/control_tower"') }}
       CONTROL_TOWER_REF: "9a11b25b6b230541e1c23c3b0d4c84450c38a716"
       CONTROL_TOWER_FRONTEND_MANIFEST_SHA256: "6fc4f4939c808b11f95fe314e5a4a2babe306b4c25efe169af2084f9a9a35733"
     steps:
