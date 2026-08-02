@@ -5,5 +5,8 @@
   "ci_mode": "sequential",
   "context_max_files": 12,
   "context_max_tokens": 4000,
-  "metrics_enabled": true
+  "control_tower_repository": "Skydonia/control_tower",
+  "dashboard_enabled": true,
+  "metrics_enabled": true,
+  "telemetry_enabled": true
 }

@@ -1,0 +1,31 @@
+name: AWF PR lifecycle telemetry
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  lifecycle-telemetry:
+    if: always()
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install the bootstrap-pinned AWF runtime
+        continue-on-error: true
+        run: bash .agent/setup-awf.sh
+      - name: Dispatch final PR lifecycle
+        continue-on-error: true
+        env:
+          AWF_CONTROL_TOWER_TOKEN: ${{ secrets.AWF_CONTROL_TOWER_TOKEN }}
+          AWF_CONTROL_TOWER_REPOSITORY: ${{ vars.AWF_CONTROL_TOWER_REPOSITORY }}
+          AWF_TELEMETRY_ENABLED: ${{ vars.AWF_TELEMETRY_ENABLED }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/send_pr_lifecycle.py

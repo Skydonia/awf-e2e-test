@@ -1,12 +1,16 @@
 {
-  "awf_version": "0.1.7",
+  "awf_version": "0.1.9",
   "managed_files": {
-    ".agent/setup-awf.sh": "sha256:fa07527f45796a156ff5698e001ea88b19bae2968de4f8132efdb673c4cdd8e2",
+    ".agent/setup-awf.sh": "sha256:f2f44cae5003fd06bb3434a9d6db52b1dd58dff718324a48e2cb3e0a5b017e54",
     ".agent/setup-project.sh": "sha256:abcab1ec84e932e101fb7d54f9629dca17bc50fd897719ecdfc60be635004fb3",
-    ".agents/skills/adaptive-software-change/SKILL.md": "sha256:f06f99cfa89dc460e8d16b1627ae7793886c0665d80dbc0ff2ae47d5554ba261",
+    ".agents/skills/adaptive-software-change/SKILL.md": "sha256:ad18e4ad549df50f3f443cec76849f9e29fd1a4da68eeb8bdbf4d17e30d3fc4e",
     ".agents/skills/repository-context/SKILL.md": "sha256:5ecbcf7dfe1145c73be779a01e9f73f7b230ff78d4f45f2116e0aabb94f46bc6",
-    ".github/workflows/quality-gate.yml": "sha256:4e027006cd43b16fa1baa80925ce5396ed3901e73e131fb17ec35e67e823638b",
-    "AGENTS.md": "sha256:d31e82f74a31ad302c33c0ad34f171d968e01fb14e3800a1c2d25dce10be805c"
+    ".github/workflows/awf-dashboard-pages.yml": "sha256:9b781df8d21385531a63970ddc37a77e96489975ae02cca26481a4993aa80463",
+    ".github/workflows/awf-episode-completed.yml": "sha256:15e97efba01e29eb113656d758e10aad3ccf45e9715526439fd73eb6f234f591",
+    ".github/workflows/awf-pr-lifecycle.yml": "sha256:3f0bf1bb4ff743cee015582a8166f1ad2d95ece8c170cca872e71ed41a3e3d99",
+    ".github/workflows/quality-gate.yml": "sha256:399f93df490d75a56886d93788ec15b636fec96d0a8bb46b0c9304d6c3fe72d8",
+    "AGENTS.md": "sha256:d31e82f74a31ad302c33c0ad34f171d968e01fb14e3800a1c2d25dce10be805c",
+    "scripts/send_pr_lifecycle.py": "sha256:da84773a8ca8b2d9e22ce834eb837b87eb13f33e1914395c20b8dcdee30b217a"
   },
   "schema_version": 1
 }

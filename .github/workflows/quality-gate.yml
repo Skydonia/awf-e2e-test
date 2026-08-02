@@ -18,3 +18,16 @@ jobs:
         run: python -m pytest
       - name: Validate build
         run: python -m build
+  telemetry:
+    name: AWF telemetry (non-blocking)
+    needs: [quality-gate]
+    if: ${{ always() }}
+    uses: ./.github/workflows/awf-episode-completed.yml
+    with:
+      telemetry_enabled: ${{ vars.AWF_TELEMETRY_ENABLED }}
+      control_tower_repository: ${{ vars.AWF_CONTROL_TOWER_REPOSITORY }}
+      source_repository: ${{ github.repository }}
+      pull_request_number: ${{ github.event.pull_request.number }}
+      source_run_id: ${{ github.run_id }}
+    secrets:
+      control_tower_token: ${{ secrets.AWF_CONTROL_TOWER_TOKEN }}

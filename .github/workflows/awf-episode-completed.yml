@@ -1,0 +1,81 @@
+name: AWF episode telemetry
+
+on:
+  workflow_call:
+    inputs:
+      telemetry_enabled:
+        required: false
+        type: string
+      control_tower_repository:
+        required: false
+        type: string
+      source_repository:
+        required: true
+        type: string
+      pull_request_number:
+        required: true
+        type: number
+      source_run_id:
+        required: true
+        type: number
+    secrets:
+      control_tower_token:
+        required: false
+    outputs:
+      telemetry_status:
+        description: dispatched, disabled, or warning
+        value: ${{ jobs.telemetry-dispatch.outputs.status }}
+
+permissions:
+  actions: read
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  telemetry-dispatch:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    outputs:
+      status: ${{ steps.send.outputs.status }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install the bootstrap-pinned AWF runtime
+        id: setup
+        continue-on-error: true
+        run: bash .agent/setup-awf.sh
+      - name: Validate, enrich, and dispatch episode-v1
+        id: send
+        continue-on-error: true
+        env:
+          AWF_CONTROL_TOWER_TOKEN: ${{ secrets.control_tower_token }}
+          AWF_CONTROL_TOWER_REPOSITORY: ${{ inputs.control_tower_repository }}
+          AWF_TELEMETRY_ENABLED: ${{ inputs.telemetry_enabled }}
+          AWF_PULL_REQUEST_NUMBER: ${{ inputs.pull_request_number }}
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ inputs.source_repository }}
+          GITHUB_RUN_ID: ${{ inputs.source_run_id }}
+        run: python -m agentic_workflow.telemetry_transport
+      - name: Expose non-blocking telemetry status
+        if: ${{ always() }}
+        env:
+          SETUP_OUTCOME: ${{ steps.setup.outcome }}
+          SEND_OUTCOME: ${{ steps.send.outcome }}
+          TELEMETRY_STATUS: ${{ steps.send.outputs.status }}
+          TELEMETRY_MESSAGE: ${{ steps.send.outputs.message }}
+        run: |
+          status="${TELEMETRY_STATUS:-warning}"
+          message="${TELEMETRY_MESSAGE:-AWF telemetry helper did not report a status}"
+          if [ "$SETUP_OUTCOME" != "success" ] || [ "$SEND_OUTCOME" != "success" ] || [ "$status" = "warning" ]; then
+            echo "::warning title=AWF telemetry::$message"
+          fi
+          {
+            echo "### AWF telemetry"
+            echo ""
+            echo "- status: $status"
+            echo "- setup outcome: $SETUP_OUTCOME"
+            echo "- send outcome: $SEND_OUTCOME"
+          } >> "$GITHUB_STEP_SUMMARY"
