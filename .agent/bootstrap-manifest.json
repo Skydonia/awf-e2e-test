@@ -1,7 +1,7 @@
 {
-  "awf_version": "0.1.12",
+  "awf_version": "0.1.13",
   "managed_files": {
-    ".agent/setup-awf.sh": "sha256:a5044a285f2473cae6e206edfdf50d500dabf4e1cbd9216f66ee7c380e2fd51d",
+    ".agent/setup-awf.sh": "sha256:403a1e8c10df8b73a8fea3e3fec89a7c780e0c39a084e303e93b5a1c4a1fb0bf",
     ".agent/setup-project.sh": "sha256:abcab1ec84e932e101fb7d54f9629dca17bc50fd897719ecdfc60be635004fb3",
     ".agents/skills/adaptive-software-change/SKILL.md": "sha256:ad18e4ad549df50f3f443cec76849f9e29fd1a4da68eeb8bdbf4d17e30d3fc4e",
     ".agents/skills/repository-context/SKILL.md": "sha256:5ecbcf7dfe1145c73be779a01e9f73f7b230ff78d4f45f2116e0aabb94f46bc6",
