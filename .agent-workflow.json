@@ -8,5 +8,20 @@
   "control_tower_repository": "Skydonia/control_tower",
   "dashboard_enabled": true,
   "metrics_enabled": true,
-  "telemetry_enabled": true
+  "telemetry_enabled": true,
+  "hermes_team": {
+    "enabled": true,
+    "project": "Skydonia/awf-e2e-test",
+    "roles": [
+      "context",
+      "delivery",
+      "review"
+    ],
+    "provider": "inherit",
+    "models": {
+      "context": "inherit",
+      "delivery": "inherit",
+      "review": "inherit"
+    }
+  }
 }

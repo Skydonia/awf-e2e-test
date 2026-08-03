@@ -10,7 +10,7 @@ requires-python = ">=3.11"
 
 [project.optional-dependencies]
 dev = [
-    "adaptive-agent-workflow==0.1.13",
+    "adaptive-agent-workflow==0.1.14",
     "pytest>=8",
 ]
 
